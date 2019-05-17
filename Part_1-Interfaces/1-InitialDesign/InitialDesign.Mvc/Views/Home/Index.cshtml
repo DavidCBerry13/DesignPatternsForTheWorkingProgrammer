@@ -1,0 +1,32 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+    <div class="row">
+        <div class="col-md-6">
+            <h3>Weather Data for @Model.WeatherData.name (@Model.ZipCode)</h3>
+
+            <table class="table table-bordered">
+                <tr>
+                    <td>Current Conditions</td>
+                    <td>@Model.WeatherData.weather[0].main</td>
+                </tr>
+                <tr>
+                    <td>Temperature</td>
+                    <td>@Model.WeatherData.main.temp</td>
+                </tr>
+                <tr>
+                    <td>Humidity</td>
+                    <td>@Model.WeatherData.main.humidity</td>
+                </tr>
+                <tr>
+                    <td>Wind</td>
+                    <td>@Model.WeatherData.wind.speed From @Model.WeatherData.wind.deg</td>
+                </tr>
+            </table>
+        </div>
+        <div class="col-md-6">
+
+
+        </div>
+    </div>
