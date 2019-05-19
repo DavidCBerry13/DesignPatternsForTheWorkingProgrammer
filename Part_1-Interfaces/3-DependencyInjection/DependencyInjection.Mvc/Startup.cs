@@ -18,12 +18,27 @@ namespace DependencyInjection.Mvc
 {
     public class Startup
     {
-        public Startup(IConfiguration configuration)
+        public Startup(IConfiguration configuration, IHostingEnvironment hostingEnvironment)
         {
-            Configuration = configuration;
+            var builder = new ConfigurationBuilder()
+                .SetBasePath(hostingEnvironment.ContentRootPath)
+                .AddJsonFile("appsettings.json",
+                    optional: false,
+                    reloadOnChange: true)
+                .AddEnvironmentVariables();
+
+            if (hostingEnvironment.IsDevelopment())
+            {
+                builder.AddUserSecrets<Startup>();
+            }
+
+            Configuration = builder.Build();
+            HostingEnvironment = hostingEnvironment;
         }
 
         public IConfiguration Configuration { get; }
+        public IHostingEnvironment HostingEnvironment { get; set; }
+
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
@@ -38,9 +53,13 @@ namespace DependencyInjection.Mvc
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
-            services.AddSingleton<IZipCodeService>(ZipCodeServiceFactory.ZipCodeService);
-            services.AddTransient<IWeatherClient, NoaaWeatherClient>();
-            //services.AddTransient<IWeatherClient, OpenWeatherApiClient>();
+            // NOAA
+            //services.AddSingleton<IZipCodeService>(ZipCodeServiceFactory.ZipCodeService);
+            //services.AddTransient<IWeatherClient, NoaaWeatherClient>();
+
+            // Open Weather API
+            string apiKey = Configuration["OpenWeatherApi:ApiKey"];
+            services.AddTransient<IWeatherClient>((factory) => new OpenWeatherApiClient(apiKey, "metric"));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -34,7 +34,7 @@ namespace Interfaces.OpenWeatherApiProvider
             WeatherData weatherData = new WeatherData()
             {
                 DataProvider = "Open Weather API",
-                ObservationTime = DateTimeOffset.FromUnixTimeMilliseconds(response.dt).UtcDateTime,
+                ObservationTime = DateTimeOffset.FromUnixTimeSeconds(response.dt).UtcDateTime.ToLocalTime(),
                 Location = response.name,
                 CurrentConditions = response.weather.FirstOrDefault()?.main,
                 Temperature = response.main.temp,

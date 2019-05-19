@@ -17,8 +17,8 @@ namespace Interfaces.Mvc.Controllers
         {
             zipCode = zipCode ?? "60605";
 
-            //IWeatherClient client = new OpenWeatherApiClient();
-            IWeatherClient client = new NoaaWeatherClient();
+            IWeatherClient client = new OpenWeatherApiClient();
+            //IWeatherClient client = new NoaaWeatherClient();
             var response = client.GetWeather(zipCode);
 
             var model = new HomeIndexViewModel() { ZipCode = zipCode, WeatherData = response };

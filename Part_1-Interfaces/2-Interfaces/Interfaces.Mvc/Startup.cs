@@ -17,9 +17,21 @@ namespace Interfaces.Mvc
 {
     public class Startup
     {
-        public Startup(IConfiguration configuration, IHostingEnvironment hostingEnvironment)
+        public Startup(IHostingEnvironment hostingEnvironment)
         {
-            Configuration = configuration;
+            var builder = new ConfigurationBuilder()
+                .SetBasePath(hostingEnvironment.ContentRootPath)
+                .AddJsonFile("appsettings.json",
+                     optional: false,
+                     reloadOnChange: true)
+                .AddEnvironmentVariables();
+
+            if (hostingEnvironment.IsDevelopment())
+            {
+                builder.AddUserSecrets<Startup>();
+            }
+
+            Configuration = builder.Build();
             HostingEnvironment = hostingEnvironment;
         }
 
@@ -40,8 +52,8 @@ namespace Interfaces.Mvc
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
             NoaaWeatherClient.ZipCodeService = ZipCodeServiceFactory.ZipCodeService;
-            OpenWeatherApiClient.ApiKey = "adbdcb262a72ec4768f67e19ee24cf13";
-            //OpenWeatherApiClient.Units = "imperial";
+
+            OpenWeatherApiClient.ApiKey = Configuration["OpenWeatherApi:ApiKey"];
             OpenWeatherApiClient.Units = "metric";
         }
 
@@ -50,7 +62,7 @@ namespace Interfaces.Mvc
         {
             if (env.IsDevelopment())
             {
-                app.UseDeveloperExceptionPage();
+                app.UseDeveloperExceptionPage();                
             }
             else
             {

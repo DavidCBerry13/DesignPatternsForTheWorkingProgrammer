@@ -40,14 +40,15 @@ namespace DependencyInjection.OpenWeatherApiProvider
             WeatherData weatherData = new WeatherData()
             {
                 DataProvider = "Open Weather API",
-                ObservationTime = DateTimeOffset.FromUnixTimeMilliseconds(response.dt).UtcDateTime,
+                ObservationTime = DateTimeOffset.FromUnixTimeSeconds(response.dt).UtcDateTime.ToLocalTime(),
                 Location = response.name,
                 CurrentConditions = response.weather.FirstOrDefault()?.main,
                 Temperature = response.main.temp,
                 Humidity = response.main.humidity,
                 Pressure = response.main.pressure,
                 WindSpeed = response.wind.speed,
-                WindDirection = response.wind.deg
+                WindDirection = CompassDirection.Decode(response.wind.deg),
+                WindDirectionDegrees = response.wind.deg
             };
 
             return weatherData;

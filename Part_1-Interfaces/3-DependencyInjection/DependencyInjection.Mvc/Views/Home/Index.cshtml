@@ -15,12 +15,20 @@
                 <p class="card-text">
                     <table class="table ">
                         <tr>
+                            <td>Data Provider</td>
+                            <td>@Model.WeatherData.DataProvider</td>
+                        </tr>
+                        <tr>
+                            <td>Observation Time</td>
+                            <td>@Model.WeatherData.ObservationTime</td>
+                        </tr>
+                        <tr>
                             <td>Current Conditions</td>
                             <td>@Model.WeatherData.CurrentConditions</td>
                         </tr>
                         <tr>
                             <td>Temperature</td>
-                            <td>@Model.WeatherData.Temperature &#176; C</td>
+                            <td>@Model.WeatherData.Temperature?.ToString("#0.0") &#176; C</td>
                         </tr>
                         <tr>
                             <td>Humidity</td>
@@ -28,7 +36,7 @@
                         </tr>
                         <tr>
                             <td>Wind</td>
-                            <td>@Model.WeatherData.WindSpeed From @Model.WeatherData.WindDirection</td>
+                            <td>@Model.WeatherData.WindSpeed?.ToString("#0.0") From @Model.WeatherData.WindDirection.Name</td>
                         </tr>
                     </table>
                 </p>

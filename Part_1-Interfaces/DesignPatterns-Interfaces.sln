@@ -25,15 +25,25 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3-Dependency Injection", "3
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Decorator", "4 - Decorator", "{F66917C6-2D00-4815-94C7-86BB15EF3226}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DependencyInjection.Mvc", "3-DependencyInjection\DependencyInjection.Mvc\DependencyInjection.Mvc.csproj", "{FD4B81B1-1180-40CC-A728-3C7F3CDC398C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DependencyInjection.Mvc", "3-DependencyInjection\DependencyInjection.Mvc\DependencyInjection.Mvc.csproj", "{FD4B81B1-1180-40CC-A728-3C7F3CDC398C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DependencyInjection.NoaaProvider", "3-DependencyInjection\DependencyInjection.NoaaProvider\DependencyInjection.NoaaProvider.csproj", "{9AFFA4EB-93AA-4919-9BFB-EDCCE41B5765}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DependencyInjection.NoaaProvider", "3-DependencyInjection\DependencyInjection.NoaaProvider\DependencyInjection.NoaaProvider.csproj", "{9AFFA4EB-93AA-4919-9BFB-EDCCE41B5765}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DependencyInjection.OpenWeatherApiProvider", "3-DependencyInjection\DependencyInjection.OpenWeatherApiProvider\DependencyInjection.OpenWeatherApiProvider.csproj", "{C3908E4A-6ED2-4EF3-AAB3-56F5926E8706}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DependencyInjection.OpenWeatherApiProvider", "3-DependencyInjection\DependencyInjection.OpenWeatherApiProvider\DependencyInjection.OpenWeatherApiProvider.csproj", "{C3908E4A-6ED2-4EF3-AAB3-56F5926E8706}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DependencyInjection.WeatherProvider", "3-DependencyInjection\DependencyInjection.WeatherProvider\DependencyInjection.WeatherProvider.csproj", "{F3E83199-7E6D-4BD7-82E6-F679926E2110}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DependencyInjection.WeatherProvider", "3-DependencyInjection\DependencyInjection.WeatherProvider\DependencyInjection.WeatherProvider.csproj", "{F3E83199-7E6D-4BD7-82E6-F679926E2110}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DependencyInjection.ZipCodeService", "3-DependencyInjection\DependencyInjection.ZipCodeService\DependencyInjection.ZipCodeService.csproj", "{380831EC-D540-41C6-A7E8-0172E598F8F1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DependencyInjection.ZipCodeService", "3-DependencyInjection\DependencyInjection.ZipCodeService\DependencyInjection.ZipCodeService.csproj", "{380831EC-D540-41C6-A7E8-0172E598F8F1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Decorator.NoaaProvider", "4-Decorator\Decorator.NoaaProvider\Decorator.NoaaProvider.csproj", "{83E391C0-643C-40DF-AC03-68D3A166EE9A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Decorator.WeatherProvider", "4-Decorator\Decorator.WeatherProvider\Decorator.WeatherProvider.csproj", "{195BB9E1-B196-48C0-9F1A-926E1AA1E46D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Decorator.ZipCodeService", "4-Decorator\Decorator.ZipCodeService\Decorator.ZipCodeService.csproj", "{875BB84A-AC32-4E64-AE82-F01EF9C34CB7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Decorator.OpenWeatherApiProvider", "4-Decorator\Decorator.OpenWeatherApiProvider\Decorator.OpenWeatherApiProvider.csproj", "{CF9E7D0A-8394-4E10-8CAD-19CF65E152E9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Decorator.Mvc", "4-Decorator\Decorator.Mvc\Decorator.Mvc.csproj", "{5DA00B08-3EBE-4102-A368-2BAF5EE3F5F6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -89,6 +99,26 @@ Global
 		{380831EC-D540-41C6-A7E8-0172E598F8F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{380831EC-D540-41C6-A7E8-0172E598F8F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{380831EC-D540-41C6-A7E8-0172E598F8F1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{83E391C0-643C-40DF-AC03-68D3A166EE9A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{83E391C0-643C-40DF-AC03-68D3A166EE9A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{83E391C0-643C-40DF-AC03-68D3A166EE9A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{83E391C0-643C-40DF-AC03-68D3A166EE9A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{195BB9E1-B196-48C0-9F1A-926E1AA1E46D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{195BB9E1-B196-48C0-9F1A-926E1AA1E46D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{195BB9E1-B196-48C0-9F1A-926E1AA1E46D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{195BB9E1-B196-48C0-9F1A-926E1AA1E46D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{875BB84A-AC32-4E64-AE82-F01EF9C34CB7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{875BB84A-AC32-4E64-AE82-F01EF9C34CB7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{875BB84A-AC32-4E64-AE82-F01EF9C34CB7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{875BB84A-AC32-4E64-AE82-F01EF9C34CB7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CF9E7D0A-8394-4E10-8CAD-19CF65E152E9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CF9E7D0A-8394-4E10-8CAD-19CF65E152E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CF9E7D0A-8394-4E10-8CAD-19CF65E152E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CF9E7D0A-8394-4E10-8CAD-19CF65E152E9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5DA00B08-3EBE-4102-A368-2BAF5EE3F5F6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5DA00B08-3EBE-4102-A368-2BAF5EE3F5F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5DA00B08-3EBE-4102-A368-2BAF5EE3F5F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5DA00B08-3EBE-4102-A368-2BAF5EE3F5F6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -106,6 +136,11 @@ Global
 		{C3908E4A-6ED2-4EF3-AAB3-56F5926E8706} = {E2320625-5900-4B7C-9B5A-01B6FDC5E5E4}
 		{F3E83199-7E6D-4BD7-82E6-F679926E2110} = {E2320625-5900-4B7C-9B5A-01B6FDC5E5E4}
 		{380831EC-D540-41C6-A7E8-0172E598F8F1} = {E2320625-5900-4B7C-9B5A-01B6FDC5E5E4}
+		{83E391C0-643C-40DF-AC03-68D3A166EE9A} = {F66917C6-2D00-4815-94C7-86BB15EF3226}
+		{195BB9E1-B196-48C0-9F1A-926E1AA1E46D} = {F66917C6-2D00-4815-94C7-86BB15EF3226}
+		{875BB84A-AC32-4E64-AE82-F01EF9C34CB7} = {F66917C6-2D00-4815-94C7-86BB15EF3226}
+		{CF9E7D0A-8394-4E10-8CAD-19CF65E152E9} = {F66917C6-2D00-4815-94C7-86BB15EF3226}
+		{5DA00B08-3EBE-4102-A368-2BAF5EE3F5F6} = {F66917C6-2D00-4815-94C7-86BB15EF3226}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A1DF291A-1253-4DB2-B4EB-6F1C32AFB0DA}

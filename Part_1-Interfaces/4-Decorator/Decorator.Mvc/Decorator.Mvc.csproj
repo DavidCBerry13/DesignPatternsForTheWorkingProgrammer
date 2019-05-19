@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+    <AspNetCoreHostingModel>InProcess</AspNetCoreHostingModel>
+    <UserSecretsId>ea3c5fbb-27ff-48ac-9e92-4d6cab716c00</UserSecretsId>
+  </PropertyGroup>
+
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />
+    <PackageReference Include="Microsoft.Extensions.Caching.Memory" Version="2.2.0" />
+    <PackageReference Include="Scrutor" Version="3.0.2" />
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <ProjectReference Include="..\Decorator.NoaaProvider\Decorator.NoaaProvider.csproj" />
+    <ProjectReference Include="..\Decorator.OpenWeatherApiProvider\Decorator.OpenWeatherApiProvider.csproj" />
+    <ProjectReference Include="..\Decorator.WeatherProvider\Decorator.WeatherProvider.csproj" />
+    <ProjectReference Include="..\Decorator.ZipCodeService\Decorator.ZipCodeService.csproj" />
+  </ItemGroup>
+
+</Project>
