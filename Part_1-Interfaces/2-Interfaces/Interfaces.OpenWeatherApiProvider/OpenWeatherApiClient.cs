@@ -41,7 +41,8 @@ namespace Interfaces.OpenWeatherApiProvider
                 Humidity = response.main.humidity,
                 Pressure = response.main.pressure,
                 WindSpeed = response.wind.speed,
-                WindDirection = response.wind.deg
+                WindDirection = CompassDirection.Decode(response.wind.deg),
+                WindDirectionDegrees = response.wind.deg
             };
 
             return weatherData;

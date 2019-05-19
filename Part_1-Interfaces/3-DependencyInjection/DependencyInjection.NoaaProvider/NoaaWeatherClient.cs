@@ -49,14 +49,14 @@ namespace DependencyInjection.NoaaProvider
             {
                 DataProvider = "NOAA/National Weather Service",
                 Location = response.location.areaDescription,
-                //ObservationTime = DateTime.ParseExact(response.currentobservation.Date, "dd MMM HH:mm", CultureInfo.InvariantCulture),
+                ObservationTime = DateTime.ParseExact(response.currentobservation.Date.Substring(0, 15), "dd MMM HH:mm tt", CultureInfo.InvariantCulture),
                 CurrentConditions = response.currentobservation.Weather,
-                Temperature = Convert.ToDouble(response.currentobservation.Temp),
+                Temperature = (Convert.ToDouble(response.currentobservation.Temp) - 32) * 5.0 / 9.0,
                 Humidity = Convert.ToDouble(response.currentobservation.Relh),
-                Pressure = Convert.ToDouble(response.currentobservation.Altimeter),
-                WindSpeed = Convert.ToDouble(response.currentobservation.Winds),
-                WindDirection = Convert.ToDouble(response.currentobservation.Windd),
-                
+                Pressure = (response.currentobservation.Altimeter != "NA") ? Convert.ToDouble(response.currentobservation.Altimeter) : (double?)null,
+                WindSpeed = (response.currentobservation.Winds != "NA") ? Convert.ToDouble(response.currentobservation.Winds) * 1.609 : (double?)null,
+                WindDirection = (response.currentobservation.Windd != "NA") ? CompassDirection.Decode(Convert.ToDouble(response.currentobservation.Windd)) : null,
+                WindDirectionDegrees = (response.currentobservation.Windd != "NA") ? Convert.ToDouble(response.currentobservation.Windd) : (double?)null,
             };
             return data;
         }

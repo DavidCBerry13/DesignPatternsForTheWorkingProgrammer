@@ -13,6 +13,8 @@
 
 
   <ItemGroup>
+    <ProjectReference Include="..\DependencyInjection.NoaaProvider\DependencyInjection.NoaaProvider.csproj" />
+    <ProjectReference Include="..\DependencyInjection.OpenWeatherApiProvider\DependencyInjection.OpenWeatherApiProvider.csproj" />
     <ProjectReference Include="..\DependencyInjection.WeatherProvider\DependencyInjection.WeatherProvider.csproj" />
     <ProjectReference Include="..\DependencyInjection.ZipCodeService\DependencyInjection.ZipCodeService.csproj" />
   </ItemGroup>

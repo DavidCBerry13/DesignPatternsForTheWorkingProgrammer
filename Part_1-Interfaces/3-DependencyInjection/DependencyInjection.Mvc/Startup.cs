@@ -2,6 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using DependencyInjection.NoaaProvider;
+using DependencyInjection.OpenWeatherApiProvider;
+using DependencyInjection.WeatherProvider;
+using DependencyInjection.ZipCodeService;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -33,6 +37,10 @@ namespace DependencyInjection.Mvc
 
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+
+            services.AddSingleton<IZipCodeService>(ZipCodeServiceFactory.ZipCodeService);
+            services.AddTransient<IWeatherClient, NoaaWeatherClient>();
+            //services.AddTransient<IWeatherClient, OpenWeatherApiClient>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

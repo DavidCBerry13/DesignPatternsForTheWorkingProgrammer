@@ -5,14 +5,28 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using DependencyInjection.Mvc.Models;
+using DependencyInjection.WeatherProvider;
 
 namespace DependencyInjection.Mvc.Controllers
 {
     public class HomeController : Controller
     {
-        public IActionResult Index()
+
+        public HomeController(IWeatherClient weatherClient)
         {
-            return View();
+            WeatherClient = weatherClient;
+        }
+
+
+        private IWeatherClient WeatherClient { get; set; }
+
+        public IActionResult Index(String zipCode = "60605")
+        {
+            var response = WeatherClient.GetWeather(zipCode);
+
+            var model = new HomeIndexViewModel() { ZipCode = zipCode, WeatherData = response };
+
+            return View(model);
         }
 
         public IActionResult Privacy()

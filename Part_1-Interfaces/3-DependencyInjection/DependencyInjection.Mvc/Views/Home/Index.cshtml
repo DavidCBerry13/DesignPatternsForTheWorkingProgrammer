@@ -1,8 +1,54 @@
-﻿@{
+﻿@model DependencyInjection.Mvc.Models.HomeIndexViewModel
+@{
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="row">
+    <div class="col-md-5">
+
+        <div class="card">
+            <div class="card-header">
+                Current Weather Conditions
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">@Model.WeatherData.Location (@Model.ZipCode)</h5>
+                <p class="card-text">
+                    <table class="table ">
+                        <tr>
+                            <td>Current Conditions</td>
+                            <td>@Model.WeatherData.CurrentConditions</td>
+                        </tr>
+                        <tr>
+                            <td>Temperature</td>
+                            <td>@Model.WeatherData.Temperature &#176; C</td>
+                        </tr>
+                        <tr>
+                            <td>Humidity</td>
+                            <td>@Model.WeatherData.Humidity %</td>
+                        </tr>
+                        <tr>
+                            <td>Wind</td>
+                            <td>@Model.WeatherData.WindSpeed From @Model.WeatherData.WindDirection</td>
+                        </tr>
+                    </table>
+                </p>
+                <form action="/Home" method="GET">
+                    <div class="row" style="margin-top: 40px">
+
+                        <div class="col-md-7"><b>Get Weather For (Zip Code):</b></div>
+                        <div class="col-md-3"><input name="zipcode" type="text" size="8" maxlength="5" /><br /></div>
+                        <div class="col-md-2"><button type="submit" class="btn btn-primary">Go</button></div>
+
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-5">
+
+
+    </div>
 </div>
+
+
+
